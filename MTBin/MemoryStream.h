@@ -94,7 +94,7 @@ namespace mtbin
 	inline void MemoryStream::Write(T* _pArray, const int& _arrayLength)
 	{
 		size_t size{ sizeof(T) * _arrayLength };  // 書き込むサイズ
-		assert((currentIndex + size) < BUFFER_SIZE  // 書き込んでもオーバーランしない
+		assert((currentIndex + size) <= BUFFER_SIZE  // 書き込んでもオーバーランしない
 			&& "buffer over run @mtbin::MemoryStream::Write");
 
 		// 書き込む
@@ -108,7 +108,7 @@ namespace mtbin
 	template<typename T>
 	inline T MemoryStream::Read()
 	{
-		assert((currentIndex + sizeof(T)) < BUFFER_SIZE  // 読み込んでもアンダーランしない
+		assert((currentIndex + sizeof(T)) <= BUFFER_SIZE  // 読み込んでもアンダーランしない
 			&& "buffer under run @mtbin::MemoryStream::Read");
 
 		mtbin::Byte* pickBuffer = new mtbin::Byte[sizeof(T)];  // 取り出し用バッファ用意
@@ -128,7 +128,7 @@ namespace mtbin
 			&& "write buffer under run @mtbin::MemoryStream::Read");
 
 		size_t size{ sizeof(T) * _arrayLength };  // 読み込むサイズ
-		assert((currentIndex + size) < BUFFER_SIZE  // 読み込んでもアンダーランしない
+		assert((currentIndex + size) <= BUFFER_SIZE  // 読み込んでもアンダーランしない
 			&& "buffer under run @mtbin::MemoryStream::Read");
 
 		::memcpy(_pWriteBuffer, &(pBuffer_[currentIndex]), size);  // 取り出す
