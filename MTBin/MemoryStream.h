@@ -111,11 +111,11 @@ namespace mtbin
 		assert((currentIndex + sizeof(T)) <= BUFFER_SIZE  // 読み込んでもアンダーランしない
 			&& "buffer under run @mtbin::MemoryStream::Read");
 
-		mtbin::Byte* pickBuffer = new mtbin::Byte[sizeof(T)];  // 取り出し用バッファ用意
-		::memcpy(pickBuffer, &(pBuffer_[currentIndex]), sizeof(T));  // 取り出す
+		T pickBuffer{};  // 取り出し用バッファ用意
+		::memcpy(&pickBuffer, &(pBuffer_[currentIndex]), sizeof(T));  // 取り出す
 		currentIndex += sizeof(T);  // サイズ分進める
 
-		return *(reinterpret_cast<T*>(pickBuffer));
+		return pickBuffer;
 	}
 
 	template<typename T>
