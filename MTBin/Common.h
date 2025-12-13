@@ -4,5 +4,5 @@
 
 namespace mtbin
 {
-	using Byte = unsigned char;
+	using Byte = uint8_t;
 }

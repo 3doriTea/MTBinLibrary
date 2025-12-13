@@ -10,10 +10,16 @@
     <ClCompile Include="TheMain.cpp">
       <Filter>リソース ファイル</Filter>
     </ClCompile>
-    <ClCompile Include="MTBin\MemoryStream.cpp" />
+    <ClCompile Include="MTBin\MemoryStreamCore.cpp" />
+    <ClCompile Include="MTBin\BinaryReader.cpp" />
+    <ClCompile Include="MTBin\BinaryWriter.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="MTBin\MemoryStream.h" />
+    <ClInclude Include="MTBin\MemoryStreamCore.h" />
     <ClInclude Include="MTBin\Common.h" />
+    <ClInclude Include="MTBin\MemoryStream.h" />
+    <ClInclude Include="MTBin\BinaryReader.h" />
+    <ClInclude Include="MTBin\BinaryWriter.h" />
+    <ClInclude Include="MTBin\mtbin.h" />
   </ItemGroup>
 </Project>

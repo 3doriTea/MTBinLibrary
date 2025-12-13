@@ -1,7 +1,7 @@
 #include <iostream>
 #include <iomanip>
 #include <string>
-#include "MTBin/MemoryStream.h"
+#include "MTBin/mtbin.h"
 
 const size_t BUFFER_SIZE{ 32 };
 const size_t NAME_LENGTH{ 4 };
@@ -20,11 +20,12 @@ static void PrintInfo(const std::string& _title, const mtbin::Byte* _pBuffer, co
 
 int main()
 {
-	using mtbin::MemoryStream;
-	using mtbin::Byte;
+	using namespace mtbin;
 
 	Byte* pBuffer{ new Byte[BUFFER_SIZE]{} };
 	MemoryStream ms{ pBuffer, BUFFER_SIZE };
+
+	BinaryWriter bw{ ms };
 
 	int hp = 100;
 	int mp = 100;
@@ -32,9 +33,9 @@ int main()
 
 	PrintInfo("Init", pBuffer, { hp, mp, name });
 
-	ms.Write(hp);
-	ms.Write(mp);
-	ms.Write(name, sizeof(name));
+	bw.Write(hp);
+	bw.Write(mp);
+	bw.Write(name, sizeof(name));
 
 	PrintInfo("Saved", pBuffer, { hp, mp, name });
 
@@ -44,11 +45,14 @@ int main()
 
 	PrintInfo("Changed", pBuffer, { hp, mp, name });
 	
+
+	BinaryReader br{ ms };
+	
 	// NOTE: ‘‚«‚İ‚ÉˆÚ“®‚µ‚½‚½‚ßAŒ©‚Ä‚¢‚éêŠ‚ğ“ª‚É–ß‚·•K—v‚ª‚ ‚é
-	ms.Seek(MemoryStream::SeekDir::Head);
-	hp = ms.Read<int>();
-	mp = ms.Read<int>();
-	ms.Read(name, sizeof(name), NAME_LENGTH);
+	br.Seek(MemoryStream::SeekDir::Head);
+	hp = br.Read<int>();
+	mp = br.Read<int>();
+	br.Read(name, sizeof(name), NAME_LENGTH);
 
 	PrintInfo("Loaded", pBuffer, { hp, mp, name });
 

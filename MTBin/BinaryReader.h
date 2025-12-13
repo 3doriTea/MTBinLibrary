@@ -4,18 +4,18 @@
 namespace mtbin
 {
 	/// <summary>
-	/// バイト配列の読み書きするクラス
+	/// バイト配列の書き取り専用とするクラス
 	/// </summary>
-	class MemoryStream : public MemoryStreamCore
+	class BinaryReader : public MemoryStreamCore
 	{
 	public:
 		using MemoryStreamCore::MemoryStreamCore;
-		~MemoryStream() {}
+		BinaryReader(const MemoryStreamCore& _core);
+		~BinaryReader() {}
 
 		using MemoryStreamCore::Current;
 		using MemoryStreamCore::Seek;
 
 		using MemoryStreamCore::Read;
-		using MemoryStreamCore::Write;
 	};
 }

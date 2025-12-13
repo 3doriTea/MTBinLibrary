@@ -127,12 +127,18 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="MTBin\MemoryStream.cpp" />
+    <ClCompile Include="MTBin\BinaryReader.cpp" />
+    <ClCompile Include="MTBin\BinaryWriter.cpp" />
+    <ClCompile Include="MTBin\MemoryStreamCore.cpp" />
     <ClCompile Include="TheMain.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="MTBin\BinaryReader.h" />
+    <ClInclude Include="MTBin\BinaryWriter.h" />
     <ClInclude Include="MTBin\Common.h" />
     <ClInclude Include="MTBin\MemoryStream.h" />
+    <ClInclude Include="MTBin\MemoryStreamCore.h" />
+    <ClInclude Include="MTBin\mtbin.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

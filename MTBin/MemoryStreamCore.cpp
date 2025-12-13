@@ -1,6 +1,6 @@
-#include "MemoryStream.h"
+#include "MemoryStreamCore.h"
 
-mtbin::MemoryStream::MemoryStream(
+mtbin::MemoryStreamCore::MemoryStreamCore(
 	mtbin::Byte* _pBuffer,
 	const size_t& _bufferSize) :
 	BUFFER_SIZE{ _bufferSize },
@@ -9,11 +9,11 @@ mtbin::MemoryStream::MemoryStream(
 {
 }
 
-mtbin::MemoryStream::~MemoryStream()
+mtbin::MemoryStreamCore::~MemoryStreamCore()
 {
 }
 
-void mtbin::MemoryStream::Seek(SeekPoint _point)
+void mtbin::MemoryStreamCore::Seek(SeekPoint _point)
 {
 	// îÕàÕêßå‰
 	if (_point < 0)
@@ -28,7 +28,7 @@ void mtbin::MemoryStream::Seek(SeekPoint _point)
 	currentIndex = _point;
 }
 
-void mtbin::MemoryStream::Seek(SeekDir _dir)
+void mtbin::MemoryStreamCore::Seek(SeekDir _dir)
 {
 	switch (_dir)
 	{
