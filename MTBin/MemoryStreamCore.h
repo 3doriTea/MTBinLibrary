@@ -8,7 +8,7 @@ namespace mtbin
 	/// <summary>
 	/// シークポイント
 	/// </summary>
-	enum struct SeekDir : SeekPoint
+	enum struct SeekAt : SeekPoint
 	{
 		Head,  // 一番頭
 		Tail,  // 一番後
