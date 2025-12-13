@@ -139,6 +139,7 @@
     <ClInclude Include="MTBin\MemoryStream.h" />
     <ClInclude Include="MTBin\MemoryStreamCore.h" />
     <ClInclude Include="MTBin\mtbin.h" />
+    <ClInclude Include="MTBin\Util.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

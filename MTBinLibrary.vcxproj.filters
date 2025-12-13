@@ -21,5 +21,6 @@
     <ClInclude Include="MTBin\BinaryReader.h" />
     <ClInclude Include="MTBin\BinaryWriter.h" />
     <ClInclude Include="MTBin\mtbin.h" />
+    <ClInclude Include="MTBin\Util.h" />
   </ItemGroup>
 </Project>
