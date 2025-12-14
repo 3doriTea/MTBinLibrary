@@ -49,7 +49,7 @@ int main()
 	BinaryReader br{ ms };
 	
 	// NOTE: ‘‚«‚İ‚ÉˆÚ“®‚µ‚½‚½‚ßAŒ©‚Ä‚¢‚éêŠ‚ğ“ª‚É–ß‚·•K—v‚ª‚ ‚é
-	br.Seek(MemoryStream::SeekDir::Head);
+	br.Seek(SeekAt::Head);
 	hp = br.Read<int>();
 	mp = br.Read<int>();
 	br.Read(name, sizeof(name), NAME_LENGTH);
